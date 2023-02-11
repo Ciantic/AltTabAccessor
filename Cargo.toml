@@ -1,0 +1,24 @@
+[package]
+name = "AltTabAccessor"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+windows = { version = "*", features = [
+    # Find dependencies with: https://microsoft.github.io/windows-docs-rs/ searching, it tells you what to import
+    "implement",
+    "Win32_System_Com",
+    "Win32_UI_Shell_Common", # for IObjectArray
+
+    # for FindWindowW
+    "Win32_Foundation",
+    "Win32_UI_WindowsAndMessaging", 
+] } 
+windows-interface = { version = "*" }
+windows-implement = { version = "*" }
+
+[lib]
+name = "AltTabAccessor"
+crate-type = ["cdylib"]
